@@ -14,7 +14,6 @@ class SearchServices {
             'app_key': Constants().applicationKeys
           });
       var data = jsonDecode(resp.body);
-      print(data);
       // Validations
       return data['results'][0];
     } catch (e) {
