@@ -1,5 +1,7 @@
 //TODO
-1.- Configure the initial template with provider and github.
-2.- Connect to Oxford API
+1.- Configure the initial template with provider and github0   ✅
+2.- Use postman and connect to the api ✅
+2.1.- Connect to Oxford API with code 
+3.2.- Configure services folder with the api.
 3.- UI SEARCH WORD
 4.- UI WORD DEFINITION
