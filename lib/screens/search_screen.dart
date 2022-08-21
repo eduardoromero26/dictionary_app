@@ -2,6 +2,7 @@ import 'package:dictionary/styles/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/word_provider.dart';
+import 'package:just_audio/just_audio.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({Key? key, required this.word}) : super(key: key);
@@ -13,14 +14,33 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
+  late AudioPlayer player;
+
   @override
   void initState() {
     context.read<WordProvider>().getSearchWordDataFromApi(widget.word);
+    player = AudioPlayer();
+
     super.initState();
   }
 
   @override
+  void dispose() {
+    player.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    return Scaffold(
+      body: context.watch<WordProvider>().wordModel?.id != widget.word
+          ? const Center(child: CircularProgressIndicator.adaptive())
+          : _buildContent(),
+    );
+  }
+
+  @override
+  Widget _buildContent() {
     return Scaffold(
       appBar: AppBar(
           // actions: [
@@ -65,6 +85,13 @@ class _SearchScreenState extends State<SearchScreen> {
                         const SizedBox(
                           height: 8,
                         ),
+                        IconButton(
+                            onPressed: () async {
+                              await player.setUrl(
+                                  'https://audio.oxforddictionaries.com/en/mp3/dog__us_1_rr.mp3');
+                              await player.play();
+                            },
+                            icon: Icon(Icons.play_arrow)),
                         const Divider(),
                         const SizedBox(
                           height: 8,
