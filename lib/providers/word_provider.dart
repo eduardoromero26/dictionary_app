@@ -7,8 +7,8 @@ class WordProvider with ChangeNotifier {
   WordModel? wordModel;
   bool loadingSearchWord = true;
 
-  Future getSearchWordDataFromApi() async {
-    dynamic wordData = await searchService.getWordDataFromApi();
+  Future getSearchWordDataFromApi(word) async {
+    dynamic wordData = await searchService.getWordDataFromApi(word);
 
     if (wordData != null) {
       wordModel = WordModel(

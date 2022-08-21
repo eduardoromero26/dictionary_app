@@ -1,5 +1,4 @@
 import 'package:dictionary/styles/colors.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/word_provider.dart';
@@ -16,7 +15,7 @@ class SearchScreen extends StatefulWidget {
 class _SearchScreenState extends State<SearchScreen> {
   @override
   void initState() {
-    context.read<WordProvider>().getSearchWordDataFromApi();
+    context.read<WordProvider>().getSearchWordDataFromApi(widget.word);
     super.initState();
   }
 

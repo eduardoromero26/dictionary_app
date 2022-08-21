@@ -1,9 +1,6 @@
 import 'package:dictionary/screens/search_screen.dart';
 import 'package:dictionary/styles/colors.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import '../providers/word_provider.dart';
 
 class MyHomeScreen extends StatefulWidget {
   const MyHomeScreen({Key? key}) : super(key: key);
@@ -17,7 +14,6 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
 
   @override
   void initState() {
-    context.read<WordProvider>().getSearchWordDataFromApi();
     super.initState();
   }
 

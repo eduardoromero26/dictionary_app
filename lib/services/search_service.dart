@@ -3,10 +3,10 @@ import 'dart:convert';
 import '../utils/constants.dart';
 
 class SearchServices {
-  Future<Map> getWordDataFromApi() async {
+  Future<Map> getWordDataFromApi(word) async {
     try {
       var resp = await http.get(
-          Uri.parse('${Constants().baseUrl}/entries/en-us/apple'),
+          Uri.parse('${Constants().baseUrl}/entries/en-us/$word'),
           headers: {
             'Content-type': 'application/json; charset=UTF-8',
             'Accept': 'application/json',
