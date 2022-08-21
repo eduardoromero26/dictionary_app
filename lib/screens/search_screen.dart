@@ -85,7 +85,7 @@ class _SearchScreenState extends State<SearchScreen> {
                       IconButton(
                           onPressed: () async {
                             await player.setUrl(
-                                'https://audio.oxforddictionaries.com/en/mp3/song_1_us_1.mp3');
+                                '${context.read<WordProvider>().wordModel?.audioFile}');
                             await player.play();
                           },
                           icon: Icon(Icons.play_arrow)),
