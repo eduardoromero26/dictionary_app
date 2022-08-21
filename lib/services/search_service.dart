@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import '../utils/constants.dart';
@@ -17,7 +18,6 @@ class SearchServices {
       // Validations
       return data['results'][0];
     } catch (e) {
-      print('Error getting the search from the api');
       return {};
     }
   }
