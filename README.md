@@ -1,16 +1,16 @@
 # dictionary
 
-A new Flutter project.
+Dictionary app made with flutter and provider. Connected to the Oxfords API.
 
-## Getting Started
+# Home
+## Screenshot
 
-This project is a starting point for a Flutter application.
+![Home](assets/home.png)
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Search Screen
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Search Screen](assets/search_screen.png)
+
+
+
