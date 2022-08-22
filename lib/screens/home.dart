@@ -1,10 +1,8 @@
+import 'package:dictionary/screens/favorites.dart';
 import 'package:dictionary/screens/search_screen.dart';
 import 'package:dictionary/services/search_service.dart';
 import 'package:dictionary/styles/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-
-import '../providers/word_provider.dart';
 
 class MyHomeScreen extends StatefulWidget {
   const MyHomeScreen({Key? key}) : super(key: key);
@@ -27,9 +25,12 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
       backgroundColor: ColorsTheme.bgGray,
       body: SafeArea(
         child: CustomScrollView(
-          primary: true,
           slivers: [
-            SliverFillRemaining(
+            SliverAppBar(
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+            ),
+            SliverToBoxAdapter(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -37,7 +38,9 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                   Container(
                     height: 480,
                     width: double.infinity,
-                    margin: const EdgeInsets.symmetric(horizontal: 28),
+                    margin: const EdgeInsets.symmetric(
+                        horizontal: 28, vertical: 20),
+                    padding: const EdgeInsets.symmetric(horizontal: 40),
                     decoration: const BoxDecoration(
                         image: DecorationImage(
                             image: AssetImage("assets/face_bg.png"),
@@ -97,7 +100,6 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                                 onPressed: () async {
                                   var resp = await SearchServices()
                                       .getWordDataFromApi(_searchWordCtrl.text);
-                                  print(resp);
                                   if (resp.isNotEmpty) {
                                     Navigator.push(
                                       context,
@@ -144,8 +146,28 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: ColorsTheme.white,
+        currentIndex: 0,
         showUnselectedLabels: false,
         selectedLabelStyle: const TextStyle(color: ColorsTheme.darkPurple),
+        onTap: (index) {
+          switch (index) {
+            case 0:
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => MyHomeScreen()),
+              );
+              break;
+            case 1:
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => FavoritesScreen()),
+              );
+              break;
+            case 2:
+              break;
+            default:
+          }
+        },
         items: const [
           BottomNavigationBarItem(
               icon: Icon(
@@ -154,7 +176,9 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
               ),
               label: 'Search'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.favorite), label: "Favorites"),
+            icon: Icon(Icons.favorite),
+            label: "Favorites",
+          ),
           BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Settings")
         ],
       ),

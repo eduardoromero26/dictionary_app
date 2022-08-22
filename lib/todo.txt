@@ -11,5 +11,9 @@
  
 2.- IS LOADING SEARCH WORD? ✅
 - Responsive design   
-1.- sEARCH WORD LOGIC
-3.- WORD MP3
+1.- sEARCH WORD LOGIC  ✅
+3.- WORD MP3  ✅
+- like list
+
+
+- Connect with firebase

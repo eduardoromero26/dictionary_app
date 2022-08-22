@@ -1,7 +1,5 @@
 import 'package:dictionary/providers/word_provider.dart';
 import 'package:dictionary/screens/home.dart';
-import 'package:dictionary/screens/search_screen.dart';
-import 'package:dictionary/styles/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

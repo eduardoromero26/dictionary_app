@@ -15,10 +15,13 @@ class SearchScreen extends StatefulWidget {
 
 class _SearchScreenState extends State<SearchScreen> {
   late AudioPlayer player;
+  var isLiked;
 
   @override
   void initState() {
     context.read<WordProvider>().getSearchWordDataFromApi(widget.word);
+    isLiked = context.read<WordProvider>().getIfWordLiked(widget.word);
+
     player = AudioPlayer();
     super.initState();
   }
@@ -42,10 +45,28 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget _buildContent() {
     return Scaffold(
       appBar: AppBar(
-          // actions: [
-          //   Icon(Icons.star_border_outlined),
-          // ],
-          ),
+        actions: [
+          SizedBox(),
+          SizedBox(),
+          isLiked == false
+              ? IconButton(
+                  onPressed: () {
+                    context.read<WordProvider>().addNewWord(widget.word);
+                    print(context.read<WordProvider>().likedList);
+                    isLiked = true;
+                  },
+                  icon: Icon(Icons.favorite_outline_outlined))
+              : IconButton(
+                  onPressed: () {
+                    context
+                        .read<WordProvider>()
+                        .deleteWordFromLiked(widget.word);
+                    isLiked = false;
+                    print(context.read<WordProvider>().likedList);
+                  },
+                  icon: Icon(Icons.favorite))
+        ],
+      ),
       backgroundColor: ColorsTheme.bgGray,
       body: SafeArea(
         child: SingleChildScrollView(

@@ -6,6 +6,7 @@ class WordProvider with ChangeNotifier {
   final searchService = SearchServices();
   WordModel? wordModel;
   bool loadingSearchWord = true;
+  List<String> likedList = [];
 
   Future getSearchWordDataFromApi(word) async {
     dynamic wordData = await searchService.getWordDataFromApi(word);
@@ -22,6 +23,20 @@ class WordProvider with ChangeNotifier {
       );
     }
     loadingSearchWord = false;
+    notifyListeners();
+  }
+
+  getIfWordLiked(word) {
+    return likedList.contains(word);
+  }
+
+  addNewWord(newWord) {
+    likedList.add(newWord);
+    notifyListeners();
+  }
+
+  deleteWordFromLiked(likedWord) {
+    likedList.remove(likedWord);
     notifyListeners();
   }
 }
