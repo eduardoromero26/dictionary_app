@@ -1,6 +1,6 @@
 # dictionary
 
-Dictionary app made with flutter and provider. Connected to the Oxfords API.
+ Trivia Game for the 1st to 151th #Pokemons made with Flutter and Provider. Connected to the Pokemon API.
 
 # Home
 ## Screenshot
@@ -8,9 +8,12 @@ Dictionary app made with flutter and provider. Connected to the Oxfords API.
 ![Home](assets/home.png)
 
 
-## Search Screen
+## Correct Answer
 
-![Search Screen](assets/search_screen.png)
+![Search Screen](assets/correct_answer.png)
 
+## Wrong Answer
+
+![Search Screen](assets/wrong_answer.png)
 
 
