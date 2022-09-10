@@ -13,7 +13,7 @@
 - Responsive design   
 1.- sEARCH WORD LOGIC  ✅
 3.- WORD MP3  ✅
-- like list
+- like list ✅
 
 
 - Connect with firebase

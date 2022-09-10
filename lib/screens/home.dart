@@ -40,7 +40,6 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                     width: double.infinity,
                     margin: const EdgeInsets.symmetric(
                         horizontal: 28, vertical: 20),
-                    padding: const EdgeInsets.symmetric(horizontal: 40),
                     decoration: const BoxDecoration(
                         image: DecorationImage(
                             image: AssetImage("assets/face_bg.png"),
